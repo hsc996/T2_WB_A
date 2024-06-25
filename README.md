@@ -1,6 +1,6 @@
 Workbook_PartA
 
-#### **Q1. Describe the architecture of a typical API project, such as a Flask application.**
+### **Q1. Describe the architecture of a typical API project, such as a Flask application.**
 
 
 While building a typical API project, such as a Flask application, the software architechure hinges on several pivotal components to handle the serialization and managament of data, as well as efficient API endpoint handling. The application will be typically involve a central file from which the application is initialised and run, (customarily this will be titled 'run.py' in order to be recognised by Flask). In order to facilitate maintainability and collaboration between developers, the application should be separated into different directories and files. The main `app/` directory will contain an `__init__.py` file and a `config.py` file. This directory should contain subdirectories containing the ORM models, CLI controllers, schemas, API endpoints (routes) and utility functions.
@@ -57,7 +57,7 @@ Debugging: During development, Flask’s built-in debugger (`app.run(debug=True`
 
 
 
-#### **Q2. Identify a database commonly used in an API project (such as a Flask application) and discuss the pros and cons of this database.**
+### **Q2. Identify a database commonly used in an API project (such as a Flask application) and discuss the pros and cons of this database.**
 
 
 PostgreSQL is an advanced, open-source relational database management system (RDBMS) commonly used in an API project such as a Flask application. It supports SQL for relational queries and JSON for non-relational queries, offering a powerful and flexible platform for a wide range of applications. As a fully ACID-compliant database, PostgreSQL ensures reliable transactions and maintains data integrity. It also boasts advanced features such as complex query capabilities, indexing, full-text search, and support for custom data types and functions.
@@ -122,57 +122,57 @@ In a Flask application, PostgreSQL can be integrated using libraries like psycop
 
 
 
-#### _Q3. Discuss an implementation of an Agile project management methodology for an API project._
+### _Q3. Discuss an implementation of an Agile project management methodology for an API project._
 
 
 
 
-#### _Q4. Provide an overview and description of a standard source control process for an API project._
+### _Q4. Provide an overview and description of a standard source control process for an API project._
 
 
 
 
-#### _Q5. Provide an overview and description of a standard testing process for an API project._
+### _Q5. Provide an overview and description of a standard testing process for an API project._
 
 
 
 
-#### _Q6. Explain the three principles of information system security._
+### _Q6. Explain the three principles of information system security._
 
 
 
 
-#### _Q7. Provide an overview of what would need to be done within an API project to implement at least one of the principles explained in Question 6._
+### _Q7. Provide an overview of what would need to be done within an API project to implement at least one of the principles explained in Question 6._
 
 
 
 
-#### _Q8. Explain the legal obligations that developers of a social media website or social media application would have in regards to handling user data, with reference to any applicable laws or acts. (12 PTS)_
+### _Q8. Explain the legal obligations that developers of a social media website or social media application would have in regards to handling user data, with reference to any applicable laws or acts. (12 PTS)_
 
 
 
 
-#### _Q9. Describe the structural aspects of the relational database model. Your description should include information about the structure in which data is stored and how relations are represented in that structure._
+### _Q9. Describe the structural aspects of the relational database model. Your description should include information about the structure in which data is stored and how relations are represented in that structure._
 
 
 
 
-#### _Q10. Describe the integrity aspects of the relational database model. Your description should include information about the types of data integrity and how they can be enforced in a relational database._
+### _Q10. Describe the integrity aspects of the relational database model. Your description should include information about the types of data integrity and how they can be enforced in a relational database._
 
 
 
 
 
-#### _Q11. Describe the manipulative aspects of the relational database model. Your description should include information about the ways in which data is manipulated (added, removed, changed, and retrieved) in a relational database._
+### _Q11. Describe the manipulative aspects of the relational database model. Your description should include information about the ways in which data is manipulated (added, removed, changed, and retrieved) in a relational database._
 
 
 
 
-#### _Q12. Conduct research into a web application (app) and answer each of the following sub-questions: (42 PTS)_
+### _Q12. Conduct research into a web application (app) and answer each of the following sub-questions: (42 PTS)_
 
 
 
-##### _List and describe the software (tech stack) used by the app._
+#### _List and describe the software (tech stack) used by the app._
 
 
 _* Programming languages_
@@ -203,28 +203,28 @@ Airpal allows Airbnb's data analysts and engineers to query and interact with la
 
 _Analytics and Utility Tools_
 
-Airbnb leverages tools such as Google Analytics and Mixpanel to gain insights into user behavior and website performance. These analytics tools provide valuable metrics and analytics capabilities, helping Airbnb optimize its services and user experience.
+Airbnb utilizes tools like Google Analytics and Mixpanel to analyze user behavior and evaluate website performance. Google Analytics provides comprehensive metrics on user interactions, traffic sources, and conversion rates, while Mixpanel offers detailed insights into user engagement and product usage patterns. These analytics tools enable Airbnb to gain valuable insights that inform strategic decisions, optimize service offerings, and continually enhance the overall user experience.
 
 _Communication and Messaging Tools_
 
-For communication services, Airbnb utilizes Twilio and SendGrid. Twilio and SendGrid manage communication channels, ensuring seamless messaging services and enhancing user engagement through effective communication solutions.
+Airbnb relies on Twilio and SendGrid for its communication services. Twilio provides APIs for SMS, voice, and messaging, enabling Airbnb to send notifications, alerts, and support messages to users. SendGrid specializes in email delivery and marketing campaigns, allowing Airbnb to efficiently manage transactional emails, marketing communications, and newsletters. These platforms play a crucial role in enhancing user engagement by ensuring reliable and effective communication channels within the Airbnb ecosystem.
 
 _Monitoring and Logging_
 
-Airbnb employs a comprehensive suite of monitoring and logging tools including New Relic, Kibana, Sentry, and Datadog. These tools monitor system performance, detect issues, and provide detailed logs for troubleshooting, ensuring high reliability and performance of Airbnb's systems.
+Airbnb utilizes a robust suite of monitoring and logging tools such as New Relic, Kibana, Sentry, and Datadog. These tools play crucial roles in monitoring system performance, detecting issues in real-time, and providing detailed logs for troubleshooting. New Relic offers performance metrics and application monitoring, while Kibana facilitates log analysis and visualization. Sentry specializes in error tracking and reporting, enhancing Airbnb's ability to quickly identify and resolve issues. Datadog provides comprehensive monitoring across infrastructure and applications, ensuring high reliability and performance of Airbnb's systems through proactive monitoring and responsive incident management.
 
 _DevOps and Deployment_
 
-In DevOps and deployment, Airbnb uses GitHub for version control, Webpack for bundling frontend assets, and tools like Vagrant and Chef for infrastructure automation and deployment management. These tools streamline development processes and ensure efficient deployment of updates and features.
+In DevOps and deployment, Airbnb uses GitHub for version control, Webpack for frontend asset bundling, and tools like Vagrant and Chef for automated infrastructure management. These tools streamline development processes and ensure efficient deployment of updates and features.
 
 _Business Tools_
 
-Airbnb utilizes collaboration tools such as Slack, G Suite, Asana, and InVision for efficient communication, project management, and collaboration across teams. These tools enhance productivity and facilitate seamless coordination within Airbnb's operations.
+Airbnb uses collaboration tools like Slack, G Suite, Asana, and InVision for efficient communication, project management, and collaboration across teams. Slack fosters real-time communication, G Suite supports document and InVision aids in design collaboration and prototyping. These tools collectively enhance productivity by fostering seamless coordination and effective communication within Airbnb's operations, enabling teams to collaborate efficiently and achieve their goals more effectively.
 
 
 
 
-##### _Describe or make educated guesses about the hardware used to host the app._
+#### _Describe or make educated guesses about the hardware used to host the app._
 
 
 1. Cloud Infrastructure:
@@ -268,7 +268,7 @@ These details are based on known information about Airbnb's technology stack, su
 
 
 
-##### _Describe the interaction of technologies within the app._
+#### _Describe the interaction of technologies within the app._
 
 
 
@@ -284,20 +284,20 @@ The interaction flow begins with user requests processed through the API Gateway
 
 
 
-##### _Describe the way data is structured within the app’s database(s)._
+#### _Describe the way data is structured within the app’s database(s)._
 
 Airbnb’s data infrastructure combines relational, NoSQL, and object storage databases to efficiently manage and utilize vast amounts of data. Relational databases (Amazon RDS with PostgreSQL) store structured data requiring complex queries, such as user profiles, listings, bookings, and reviews. NoSQL databases (Amazon DynamoDB) handle high-speed access to unstructured data, such as session management and activity logs. Media files like images and videos are stored in Amazon S3. Analytical data and large-scale processing are managed through Amazon Redshift, which aggregates data from various sources for reporting and insights. This hybrid approach ensures transactional consistency, quick access to data, and efficient large-scale analytics, providing a seamless user experience.
 
 
 
-##### _Identify the entities/tables that are tracked within the app’s database(s)._
+#### _Identify the entities/tables that are tracked within the app’s database(s)._
 
 
 Airbnb’s databases track various entities to manage user interactions, listings, transactions, and activities. In relational databases (Amazon RDS with PostgreSQL), key tables include Users (user information), Listings (property details), Bookings (transaction records), and Reviews (user feedback). NoSQL databases (Amazon DynamoDB) manage Sessions (user session data) and Activity Logs (user activities). Object storage (Amazon S3) holds media files for listings and user documents. Data warehousing (Amazon Redshift) aggregates data in tables like Bookings Summary (booking analytics) and User Activity (user interaction summaries). These entities ensure efficient management of user data, property listings, transactions, and analytics.
 
 
 
-##### _Identify the relationships and associations between the entities/tables identified in sub-question E._
+#### _Identify the relationships and associations between the entities/tables identified in sub-question E._
 
 
 Users (user_id)
@@ -316,7 +316,7 @@ Users (user_id)
 
 
 
-##### _Design an entity relationship diagram (ERD) based on the answers provided to sub-questions E and F. This must represent a relational database model, even if the app itself uses something other than a relational database model._
+#### _Design an entity relationship diagram (ERD) based on the answers provided to sub-questions E and F. This must represent a relational database model, even if the app itself uses something other than a relational database model._
 
 
 
