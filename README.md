@@ -1,6 +1,6 @@
 Workbook_PartA
 
-##### **Q1. Describe the architecture of a typical API project, such as a Flask application.**
+#### **Q1. Describe the architecture of a typical API project, such as a Flask application.**
 
 
 While building a typical API project, such as a Flask application, the software architechure hinges on several pivotal components to handle the serialization and managament of data, as well as efficient API endpoint handling. The application will be typically involve a central file from which the application is initialised and run, (customarily this will be titled 'run.py' in order to be recognised by Flask). In order to facilitate maintainability and collaboration between developers, the application should be separated into different directories and files. The main `app/` directory will contain an `__init__.py` file and a `config.py` file. This directory should contain subdirectories containing the ORM models, CLI controllers, schemas, API endpoints (routes) and utility functions.
@@ -57,7 +57,7 @@ Debugging: During development, Flask’s built-in debugger (`app.run(debug=True`
 
 
 
-##### **Q2. Identify a database commonly used in an API project (such as a Flask application) and discuss the pros and cons of this database.**
+#### **Q2. Identify a database commonly used in an API project (such as a Flask application) and discuss the pros and cons of this database.**
 
 
 PostgreSQL is an advanced, open-source relational database management system (RDBMS) commonly used in an API project such as a Flask application. It supports SQL for relational queries and JSON for non-relational queries, offering a powerful and flexible platform for a wide range of applications. As a fully ACID-compliant database, PostgreSQL ensures reliable transactions and maintains data integrity. It also boasts advanced features such as complex query capabilities, indexing, full-text search, and support for custom data types and functions.
@@ -122,53 +122,53 @@ In a Flask application, PostgreSQL can be integrated using libraries like psycop
 
 
 
-##### _Q3. Discuss an implementation of an Agile project management methodology for an API project._
+#### _Q3. Discuss an implementation of an Agile project management methodology for an API project._
 
 
 
 
-##### _Q4. Provide an overview and description of a standard source control process for an API project._
+#### _Q4. Provide an overview and description of a standard source control process for an API project._
 
 
 
 
-##### _Q5. Provide an overview and description of a standard testing process for an API project._
+#### _Q5. Provide an overview and description of a standard testing process for an API project._
 
 
 
 
-##### _Q6. Explain the three principles of information system security._
+#### _Q6. Explain the three principles of information system security._
 
 
 
 
-##### _Q7. Provide an overview of what would need to be done within an API project to implement at least one of the principles explained in Question 6._
+#### _Q7. Provide an overview of what would need to be done within an API project to implement at least one of the principles explained in Question 6._
 
 
 
 
-##### _Q8. Explain the legal obligations that developers of a social media website or social media application would have in regards to handling user data, with reference to any applicable laws or acts. (12 PTS)_
+#### _Q8. Explain the legal obligations that developers of a social media website or social media application would have in regards to handling user data, with reference to any applicable laws or acts. (12 PTS)_
 
 
 
 
-##### _Q9. Describe the structural aspects of the relational database model. Your description should include information about the structure in which data is stored and how relations are represented in that structure._
+#### _Q9. Describe the structural aspects of the relational database model. Your description should include information about the structure in which data is stored and how relations are represented in that structure._
 
 
 
 
-##### _Q10. Describe the integrity aspects of the relational database model. Your description should include information about the types of data integrity and how they can be enforced in a relational database._
+#### _Q10. Describe the integrity aspects of the relational database model. Your description should include information about the types of data integrity and how they can be enforced in a relational database._
 
 
 
 
 
-##### _Q11. Describe the manipulative aspects of the relational database model. Your description should include information about the ways in which data is manipulated (added, removed, changed, and retrieved) in a relational database._
+#### _Q11. Describe the manipulative aspects of the relational database model. Your description should include information about the ways in which data is manipulated (added, removed, changed, and retrieved) in a relational database._
 
 
 
 
-##### _Q12. Conduct research into a web application (app) and answer each of the following sub-questions: (42 PTS)_
+#### _Q12. Conduct research into a web application (app) and answer each of the following sub-questions: (42 PTS)_
 
 
 
