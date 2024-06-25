@@ -6,7 +6,7 @@ Workbook_PartA
 While building a typical API project, such as a Flask application, the software architechure hinges on several pivotal components to handle the serialization and managament of data, as well as efficient API endpoint handling. The application will be typically involve a central file from which the application is initialised and run, (customarily this will be titled 'run.py' in order to be recognised by Flask). In order to facilitate maintainability and collaboration between developers, the application should be separated into different directories and files. The main `app/` directory will contain an `__init__.py` file and a `config.py` file. This directory should contain subdirectories containing the ORM models, CLI controllers, schemas, API endpoints (routes) and utility functions.
 
 
-_1. Mapping an ERM (Entity Relationship Model)_
+<u> _1. Mapping an ERM (Entity Relationship Model)_ </u>
 
 Typically, it is customary for developers to organize the structure of the application using an Entity Relationship Model (ERMs), which serve as a blueprint for how data is stored, organized, and related within a system. ERMs provide the developer with a clear breakdown of the application structure by defining the central entities, their attributes and the relationships between them. By mapping these elements in a visual representation, it provides a clear reference point for the developer to refer back to in order to ultimately ensure data integrity, optimize query performance, and facilitate maintenance and scalability of the database system.
 
