@@ -6,7 +6,7 @@ Workbook_PartA
 While building a typical API project, such as a Flask application, the software architechure hinges on several pivotal components to handle the serialization and managament of data, as well as efficient API endpoint handling. The application will be typically involve a central file from which the application is initialised and run, (customarily this will be titled 'run.py' in order to be recognised by Flask). In order to facilitate maintainability and collaboration between developers, the application should be separated into different directories and files. The main `app/` directory will contain an `__init__.py` file and a `config.py` file. This directory should contain subdirectories containing the ORM models, CLI controllers, schemas, API endpoints (routes) and utility functions.
 
 
-<u> _1. Mapping an ERM (Entity Relationship Model)_ </u>
+_1. Mapping an ERM (Entity Relationship Model)_
 
 Typically, it is customary for developers to organize the structure of the application using an Entity Relationship Model (ERMs), which serve as a blueprint for how data is stored, organized, and related within a system. ERMs provide the developer with a clear breakdown of the application structure by defining the central entities, their attributes and the relationships between them. By mapping these elements in a visual representation, it provides a clear reference point for the developer to refer back to in order to ultimately ensure data integrity, optimize query performance, and facilitate maintenance and scalability of the database system.
 
@@ -17,11 +17,11 @@ Configuration settings for different environments are managed in separate config
 
 _3. Database Management_
 
-    - Object-Relational Mapping (SQLAlchemy)
-        ORMs are utilised to map database tables to Python objects, allowing developers to interact with relational databases (e.g., SQLite, PostgreSQL, MySQL) using Python code instead of raw SQL. In the context of a flask application, SQLAlchemy is an SQL toolkit and ORM library used as an interface to manage database schema, query execution, and transactions. The ORM models will be sequestered into their own `models/` directory, and each model defined will represent a database table. The database is then configured in the `config.py` file, which is used to specify database URI and SQLAlchemy settings.
+- Object-Relational Mapping (SQLAlchemy)
+    ORMs are utilised to map database tables to Python objects, allowing developers to interact with relational databases (e.g., SQLite, PostgreSQL, MySQL) using Python code instead of raw SQL. In the context of a flask application, SQLAlchemy is an SQL toolkit and ORM library used as an interface to manage database schema, query execution, and transactions. The ORM models will be sequestered into their own `models/` directory, and each model defined will represent a database table. The database is then configured in the `config.py` file, which is used to specify database URI and SQLAlchemy settings.
 
-    - Serialization/Deserialization (Marshmallow)
-        The ORM models then require another library in order to serialize and deserialize the data provided. In order to convert complex data structures into a format that can be easily transmitted or stored, a typical APi project such as a Flask application will require the use of a library such as Marshmallow.
+- Serialization/Deserialization (Marshmallow)
+    The ORM models then require another library in order to serialize and deserialize the data provided. In order to convert complex data structures into a format that can be easily transmitted or stored, a typical APi project such as a Flask application will require the use of a library such as Marshmallow.
 
 
 _4. Environment Variables_
@@ -174,57 +174,57 @@ In a Flask application, PostgreSQL can be integrated using libraries like psycop
 
 ##### _List and describe the software (tech stack) used by the app._
 
-_1. Programming languages_:
 
-**Frontend:** JavaScript and React (JS UI library)
-JavaScript is a widely used programming language for creating dynamic user interfaces and building responsive web applications.
-React, a JavaScript library, enhances the development of reusable UI components. A flexible and efficient solution for building sleek user interfaces.
+_* Programming languages_
 
-**Backend:** Java, Ruby on Rails (framework)
-Java is a robust backend language known for its scalability and performance.
-Ruby on Rails, a web application framework, provides a rapid development environment. Known for its impressive capabilities that speed up development and, as a result, reduce costs and TTM (time to market).
+**Frontend:** Airbnb utilizes both JavaScript and React for its frontend development. JavaScript is extensively used for creating dynamic user interfaces and responsive web applications. React, a JavaScript library, facilitates creation of reusable UI components, making it a flexible and efficient solution for constructing a steamlined user interfaces.
 
+**Backend:** Airbnb employs both Java and Ruby on Rails for its backend operations. Java, a robust backend language, is widely regarded for its scalability and performance. Ruby on Rails is a web application framework, providing accelerated development capabilities and subsquently reducing costs and time to market.
 
-_2. Databases:_ MySQL, Amazon RDS
-- MySQL handles data storage, and Amazon RDS offers managed database services in the cloud.
-- (Cloud database) -- Amazon keeps its data in an Amazon’s cloud relational database. Earlier, Amazon used MySQL databases, but switched to Amazon RDS to simplify administration and other routine tasks.
+_* Databases_
 
+Airbnb manages its data using MySQL and Amazon RDS. While MySQL is utilized for data storage, Amazon RDS offers database management services using the cloud. Amazon RDS simplifies general administration and routine tasks required when dealing with relational databases; thus, providing a scalable solution for Airbnb's database needs.
 
-_3. Cloud services:_ Amazon S3, EC2, CloudFront
-**Cloud Storage:** Amazon S3 for scalable object storage. To store user data including millions of user pictures, Amazon resorts to Amazon services.
-**Cloud hosting:** Amazon EC2 for virtual servers, and CloudFront for content delivery. Amazon EC2 is an efficient tool that distributes the incoming traffic and doesn’t let Airbnb’s system go down during sudden traffic spikes or any unexpected traffic fluctuations.
+_* Cloud services_
 
+Airbnb utilizes Amazon S3 for storing static assets like property images and user profile pictures securely, ensuring scalable access. Amazon EC2 provides computational resources for running dynamic app components such as backend server logic and application servers, interacting with S3 for retrieving and serving static assets. Amazon CloudFront enhances performance by caching content globally, reducing latency and improving user experience through faster load times. This integrated use of S3, EC2, and CloudFront forms a scalable infrastructure that supports Airbnb's operations, optimizing content delivery and enhancing user interactions globally.
 
-_4. Webserver:_ Nginx
-Nginx is a powerful HTTP and proxy server that speeds up content delivery, ensures Airbnb’s security and scalability. This server is popular among other leading tech companies such as Netflix, Instagram and Zappos use NGinx too.
+_* Webserver_
 
+Nginx serves dual roles as both a high-performance web server and a reliable reverse proxy within the Airbnb app. It efficiently delivers static content such as HTML, CSS, and JavaScript files to users, enhancing frontend performance by reducing backend server load. As a reverse proxy, Nginx distributes incoming requests across multiple backend servers, including those on Amazon EC2, optimizing resource use and response times. Nginx ensures security with SSL/TLS management and HTTPS encryption, while its flexible configuration supports caching strategies and performance adjustments for scalability. Its high availability features maintain seamless service uptime by routing traffic to healthy servers, managing failures, and ensuring a resilient user experience worldwide.
 
-_5. Caching and key-value storage:_
-- Redis. Redis provides a scalable cache infrastructure and a key/value database.
+_Caching and key-value storage_
 
+In Airbnb's tech stack, Redis is essential for caching frequently accessed data such as user sessions and database queries, which improves application performance by reducing latency. It serves as a fast and efficient key-value store for managing real-time analytics, user preferences, and temporary data. Redis also supports pub/sub messaging for asynchronous communication and acts as a secure session store, ensuring seamless user interactions across the platform.
 
-_8. Query Tool: Airpal_
-Airpal is Airbnb's SQL-based query tool for data exploration.
+_Query Tool_
 
-_9. Analytics and Utility Tools:_ Google Analytics, Mixpanel
-Tools like Google Analytics and Mixpanel provide insights into user behavior and website performance.
+Airpal allows Airbnb's data analysts and engineers to query and interact with large datasets stored in their data infrastructure, typically based on Apache Hive. This tool provides a user-friendly interface for writing and executing SQL queries against Airbnb's data warehouse, facilitating tasks such as generating reports, conducting ad-hoc analyses, and extracting insights to support decision-making across various business functions.
 
-_10. Communication and Messaging Tools:_ Twilio, SendGrid
-Twilio and SendGrid handle communication, ensuring seamless messaging services.
+_Analytics and Utility Tools_
 
-_11. Monitoring and Logging:_ New Relic, Kibana, Sentry, Datadog
-Monitoring tools like New Relic and Datadog, along with logging tools like Kibana and Sentry, ensure system reliability.
+Airbnb leverages tools such as Google Analytics and Mixpanel to gain insights into user behavior and website performance. These analytics tools provide valuable metrics and analytics capabilities, helping Airbnb optimize its services and user experience.
 
-_12. DevOps and Deployment:_
- GitHub, Webpack, Vagrant, Chef - GitHub for version control, Webpack for bundling, and tools like Vagrant and Chef for DevOps and deployment.
+_Communication and Messaging Tools_
 
-_13. Business Tools:_ Slack, G Suite, Asana, InVision - Collaboration tools like Slack, G Suite, Asana, and InVision streamline communication and project management.
+For communication services, Airbnb utilizes Twilio and SendGrid. Twilio and SendGrid manage communication channels, ensuring seamless messaging services and enhancing user engagement through effective communication solutions.
+
+_Monitoring and Logging_
+
+Airbnb employs a comprehensive suite of monitoring and logging tools including New Relic, Kibana, Sentry, and Datadog. These tools monitor system performance, detect issues, and provide detailed logs for troubleshooting, ensuring high reliability and performance of Airbnb's systems.
+
+_DevOps and Deployment_
+
+In DevOps and deployment, Airbnb uses GitHub for version control, Webpack for bundling frontend assets, and tools like Vagrant and Chef for infrastructure automation and deployment management. These tools streamline development processes and ensure efficient deployment of updates and features.
+
+_Business Tools_
+
+Airbnb utilizes collaboration tools such as Slack, G Suite, Asana, and InVision for efficient communication, project management, and collaboration across teams. These tools enhance productivity and facilitate seamless coordination within Airbnb's operations.
 
 
 
 
 ##### _Describe or make educated guesses about the hardware used to host the app._
-
 
 
 1. Cloud Infrastructure:
@@ -317,6 +317,8 @@ Users (user_id)
 
 
 ##### _Design an entity relationship diagram (ERD) based on the answers provided to sub-questions E and F. This must represent a relational database model, even if the app itself uses something other than a relational database model._
+
+
 
       +-----------------+
       |      Users      |
