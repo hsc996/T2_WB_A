@@ -72,21 +72,13 @@ _1. ACID Compliance:_ PostgreSQL is fully ACID-compliant, ensuring data integrit
 _2. Advanced Features:_ PostgreSQL provides advanced features like complex queries, foreign keys, triggers, views, and stored procedures, in order to enable sophisticated data manipulation and the implementation of business logic directly within the database.
 
 
-_3. Extensibility:_ PostgreSQL's is a highly extensibile system, offering a myriad of customisable options to the user to meet their specific application needs.Users can define their own data types, index types, and functional languages. PostgreSQL is a packaging tool for database add-ons, supporting languages like PL/pgSQL, PL/Python, Java, and even JavaScript: It allows developers to write and run functions in various languages within the database by exposing an interface for language integration. This interface enables seamless execution of functions regardless of their underlying language, thus simplifying complexity by providing an extensible language function. This capability allows larger companies to develop functional packages tailored to their specific business domains.
+_3. Extensibility:_ PostgreSQL's is a highly extensibile system, offering a myriad of customisable options to the user to meet their specific application needs. Users can define their own data types, index types, and functional languages. It is also a packaging tool for database add-ons, supporting languages like PL/pgSQL, PL/Python, Java, and even JavaScript; allowing developers to write and run functions in various languages within the database by exposing an interface for language integration. This interface enables seamless execution of functions regardless of their underlying language, thus simplifying complexity by providing an extensible language function. This capability allows larger companies to develop functional packages tailored to their specific business domains.
 
-_4. Performance_
+_4. Performance:_ PostgreSQL supports complex queries, foreign keys, triggers, views, and stored procedures, enabling sophisticated data manipulation and business logic directly within the database. Its powerful indexing and optimization techniques make it suitable for managing large datasets and high-concurrency environments efficiently. Additionally, it uses Multi-Version Concurrency Control (MVCC) to handle concurrent processing and maintain high transaction rates with minimal risk of deadlocks, as well as ensuring high availability and provides server failure recovery mechanisms (https://cloud.google.com/learn/postgresql-vs-sql#section-8).
 
-PostgreSQL supports complex queries, foreign keys, triggers, views, and stored procedures, enabling sophisticated data manipulation and business logic directly within the database. Its powerful indexing and optimization techniques make it suitable for managing large datasets and high-concurrency environments efficiently. Additionally, it uses Multi-Version Concurrency Control (MVCC) to handle concurrent processing and maintain high transaction rates with minimal risk of deadlocks (https://cloud.google.com/learn/postgresql-vs-sql#section-8). Additionally, it ensures high availability and provides server failure recovery mechanisms.
+_5. Open Source:_ PostgreSQL being open source is highly beneficial as it is cost-effective, reducing database management expenses since it is free to use. It enjoys strong community support, with a large and active developer base ensuring rapid bug fixes, regular updates, and abundant resources. The open-source nature allows for high flexibility and customization, enabling users to modify the source code to meet specific needs. Additionally, it offers transparency for inspecting code security and reliability, fosters innovation through global collaboration, and avoids vendor lock-in, providing freedom in choosing support and services.
 
-_5. Open Source_
-
-PostgreSQL being open source is highly beneficial as it is cost-effective, reducing database management expenses since it is free to use. It enjoys strong community support, with a large and active developer base ensuring rapid bug fixes, regular updates, and abundant resources. The open-source nature allows for high flexibility and customization, enabling users to modify the source code to meet specific needs. Additionally, it offers transparency for inspecting code security and reliability, fosters innovation through global collaboration, and avoids vendor lock-in, providing freedom in choosing support and services.
-
-_6. Security_
-
-PostgreSQL has established international recognition in regards to it's security. While it has internally integrated security features such as data encryption, SSL certificates, and advanced authentication methods, it also has secuirty extension available to further enhance the security of the application (https://www.aalpha.net/blog/pros-and-cons-of-using-postgresql-for-application-development/). Regarding parameter security, PostgreSQL offers configurations at the operating system level to secure the environment surrounding your database. For application security, it provides user privilege management by categorizing accounts into roles such as read-only, read/write, and others. Beyond granting specific permissions to users, you can also establish ongoing permissions for various actions or resources (https://www.aalpha.net/blog/pros-and-cons-of-using-postgresql-for-application-development/).
-
-_7. Transactions_
+_6. Security:_ While it has internally integrated security features such as data encryption, SSL certificates, and advanced authentication methods, it also has secuirty extension available to further enhance the security of the application (https://www.aalpha.net/blog/pros-and-cons-of-using-postgresql-for-application-development/). Regarding parameter security, PostgreSQL offers configurations at the operating system level to secure the environment surrounding your database. For application security, it provides user privilege management by categorizing accounts into roles such as read-only, read/write, and others. Beyond granting specific permissions to users, you can also establish ongoing permissions for various actions or resources (https://www.aalpha.net/blog/pros-and-cons-of-using-postgresql-for-application-development/).
 
 
 
@@ -96,33 +88,42 @@ _7. Transactions_
 
 _1. Complexity:_ Due to its advanced features and extensive configuration options, PostgreSQL can be more complex to set up and maintain compared to simpler databases like SQLite.
 
-_2. Resource Intensive:_
+_2. Resource Intensive:_ PostgreSQL can be more resource-intensive, requiring more memory and CPU, which might be a concern for smaller applications or those running on limited hardware.
 
-PostgreSQL can be more resource-intensive, requiring more memory and CPU, which might be a concern for smaller applications or those running on limited hardware.
+_4. Learning Curve:_ The richness of features means there is a steeper learning curve for new users or developers who are not familiar with its capabilities and configuration options. It has also been noted that the initial installation may also be dififcult for beginners.
+- Installation can be difficult for beginners (https://cloud.google.com/learn/postgresql-vs-sql).
 
-_4. Learning Curve_
+_5. Scaling Write Operations:_ While PostgreSQL handles read operations very efficiently, scaling write operations across multiple servers can be challenging and may require additional tools and configurations (e.g., sharding, replication).
 
-The richness of features means there is a steeper learning curve for new users or developers who are not familiar with its capabilities and configuration options.
-- Installation can be difficult for beginners
-
-_Scaling Write Operations_
-
-While PostgreSQL handles read operations very efficiently, scaling write operations across multiple servers can be challenging and may require additional tools and configurations (e.g., sharding, replication).
-
-- Slower performance compared to other RDBMS like SQL Server and MySQL
-- Stronger focus on compatibility, speed improvements require extra work
-
-Postgres Cons:
-* Somewhat slow for inserts and updates when compared to mysql ( due to
-  pgsql having to check for triggers and such )
-* Some SELECT queries may be slower than their counterparts in MySQL.
-
-Use in Flask Applications
-In a Flask application, PostgreSQL can be integrated using libraries like psycopg2 for direct database interactions or SQLAlchemy for ORM (Object-Relational Mapping) capabilities. This combination provides a powerful and flexible backend for API projects, leveraging PostgreSQL’s robustness and Flask’s simplicity.
+_6. Slower performance:_ As this database has a stronger focus on delivering compatibility, the speed of peformance has been impacted when compared to other RDBMS like SQL Server and MySQL ((https://cloud.google.com/learn/postgresql-vs-sql)). It has also been noted that some SELECT queries may be slower than their counterparts. 
 
 
 
 ### _Q3. Discuss an implementation of an Agile project management methodology for an API project._
+
+https://www.atlassian.com/agile/product-management
+
+Agile Product Management hinges on consistently garnering user feedback and incorporating it into updates. This iterative approach involves a series of steps that integrate multiple feedback intervals to promote adaptability and ensure the delivery of the best possible version of the product. After deciding on the steps to be taken, the project is divided into several segments, commonly known as user stories, which are distributed among the team of developers.
+
+_Define API Objectives & Roles:_ The purpose and vision of the API will be discussed in detail with the entire cross-functional team; including developers, QA engineers, product owners, UX/UI designers, and possibly stakeholders. Once the objectives and key features of the API project have been established, clear roles should be defined among members of the team; including Scrum Master, Product Owner, and Development Team members.
+
+_Developing a Roadmap:_ Typically, an API project under APM will involve the construction of a product roadmap, outlining a timeline for how the product is intended to develop over time. This involves delineating large areas of functionality from which initiatives are composed (https://www.atlassian.com/agile/product-management). Roadmaps are designed to be flexible and are likely to change over the course of the project. Each initiative in the roadmap is broken down into a set of requirements, tailored throughout the process based on the team's collective understanding of the desired outcomes (https://www.atlassian.com/agile/product-management).
+
+_Sprint Planning:_ After deciding on the steps to be taken, the API project will be divided into several segments, commonly known as user stories, which are distributed among the team of developers. From the broader intiatives, the work will be broken down in to "Epics". The epics are larger bodies of work that will then be broken down further into "Stories". In this step, the stories will be assigned to the developers and can typically be compelted in 1-2 week sprints until the entire epic is completed (https://www.atlassian.com/agile/product-management). The user stories should be ranked based on business value, complexity, and dependencies. At this step, the team will also devise story point estimations to provide the team and product owner with an achievable timeline. Scrum teams structure development into time-boxed sprints. At the beginning of each sprint, the team estimates the amount of work they can accomplish. A sprint burndown report subsequently monitors the progress of work throughout the sprint.
+
+_Personal Planning & Execution:_ The developers will then work on their stories, while having daily stand-ups with the rest of the cross-functional to discuss any blockers, progress and next steps. This promotes expectation and gola alignment withint the team and allows for early identification of issues. Before commencing their stories, the developers will independently map their own story tasks using  APM tools like Jira, Trello, or Asana to track tasks and progress. For a software team working on an API project, the overall workflow would be decided, likely mirroring something like this: To-Do (Work that has not yet been started), In Progress (work that is currently being developed), Code Review (work that is completed and awaiting review), Done (work that has been completed and reviewed). The sprint burndown report of the API project will be repeatedly referenced to track team progress.
+
+_Metrics:_ Review of Metrics will remain ongoing during and after the API project execution. This will require collecting and anaylsing relevant data along the way. Work in progress (WIP) limits ensure that both the team and the business focus on delivering the most critical tasks. Tools such as burndown charts and control charts help the team forecast their delivery pace, while continuous flow diagrams help identify bottlenecks (https://www.atlassian.com/agile/product-management). Other APM tools that may be used to track metrics include sprint burndown chart, epic burdown charts, velocity charts, control charts, culmunitive flow diagrams.A Gantt chart is also another APM tool that may prove useful to illustrate work completed over a period of time in relation to the time planned.
+
+_Continuous Integration & Testing:_ During the development of this API project, the team must remain flexible to flutuations. Continuous inegretion and continous deployment pipelines (CI/CD Pipelines) will be implemented to automate testing and deployment processes. Similarly, unit, integration and performance texting for the API will be executed via automated tests: E.g. developers may use `unittest` or `pytest` to test the code in their stories. The team will ensure continuous improvement using APM tools such as resprospectives, Plan-Do-Check-Act (PDCA) Principle, Kanban method/metrics (https://www.atlassian.com/agile/product-management). Overall, this will require constant and efficient collaboration and communication between all members of the team.
+
+_Review:_ At the conclusion of each sprint, a review of the finished work will be conducted with stakeholders and showcase new API functionalities; these are aptly named "Sprint Reviews". The sprint review will evaluate the sprint to determine successes, challenges, and opportunities for process enhancement. Retrospectives will be orchestrated at regular intervals for team reflection (https://www.atlassian.com/agile/product-management).
+
+
+_Post Execution Monitoring:_ Feedback will then be collected from the early adopters or stakeholders and integrated into the product backlog. This API project will then be adapted backed on this feedback to coninously enhance the API. The aforementioned APM metrics tools will be continously reviewed and considered during this process to improve the project.
+
+
+_Documentation & Versioning:_ Throughout production, it will be crucial for all members of the team to maintain up-to-date documentation for the API. For software developers, this means regularly committing their code to Version Control Systems such as Git to maanage changes and releases.
 
 
 
@@ -175,6 +176,7 @@ In a Flask application, PostgreSQL can be integrated using libraries like psycop
 #### _List and describe the software (tech stack) used by the app._
 
 
+
 _* Programming languages_
 
 **Frontend:** Airbnb utilizes both JavaScript and React for its frontend development. JavaScript is extensively used for creating dynamic user interfaces and responsive web applications. React, a JavaScript library, facilitates creation of reusable UI components, making it a flexible and efficient solution for constructing a steamlined user interfaces.
@@ -193,31 +195,31 @@ _* Webserver_
 
 Nginx serves dual roles as both a high-performance web server and a reliable reverse proxy within the Airbnb app. It efficiently delivers static content such as HTML, CSS, and JavaScript files to users, enhancing frontend performance by reducing backend server load. As a reverse proxy, Nginx distributes incoming requests across multiple backend servers, including those on Amazon EC2, optimizing resource use and response times. Nginx ensures security with SSL/TLS management and HTTPS encryption, while its flexible configuration supports caching strategies and performance adjustments for scalability. Its high availability features maintain seamless service uptime by routing traffic to healthy servers, managing failures, and ensuring a resilient user experience worldwide.
 
-_Caching and key-value storage_
+_* Caching and key-value storage_
 
 In Airbnb's tech stack, Redis is essential for caching frequently accessed data such as user sessions and database queries, which improves application performance by reducing latency. It serves as a fast and efficient key-value store for managing real-time analytics, user preferences, and temporary data. Redis also supports pub/sub messaging for asynchronous communication and acts as a secure session store, ensuring seamless user interactions across the platform.
 
-_Query Tool_
+_* Query Tool_
 
 Airpal allows Airbnb's data analysts and engineers to query and interact with large datasets stored in their data infrastructure, typically based on Apache Hive. This tool provides a user-friendly interface for writing and executing SQL queries against Airbnb's data warehouse, facilitating tasks such as generating reports, conducting ad-hoc analyses, and extracting insights to support decision-making across various business functions.
 
-_Analytics and Utility Tools_
+_* Analytics and Utility Tools_
 
 Airbnb utilizes tools like Google Analytics and Mixpanel to analyze user behavior and evaluate website performance. Google Analytics provides comprehensive metrics on user interactions, traffic sources, and conversion rates, while Mixpanel offers detailed insights into user engagement and product usage patterns. These analytics tools enable Airbnb to gain valuable insights that inform strategic decisions, optimize service offerings, and continually enhance the overall user experience.
 
-_Communication and Messaging Tools_
+_* Communication and Messaging Tools_
 
 Airbnb relies on Twilio and SendGrid for its communication services. Twilio provides APIs for SMS, voice, and messaging, enabling Airbnb to send notifications, alerts, and support messages to users. SendGrid specializes in email delivery and marketing campaigns, allowing Airbnb to efficiently manage transactional emails, marketing communications, and newsletters. These platforms play a crucial role in enhancing user engagement by ensuring reliable and effective communication channels within the Airbnb ecosystem.
 
-_Monitoring and Logging_
+_* Monitoring and Logging_
 
 Airbnb utilizes a robust suite of monitoring and logging tools such as New Relic, Kibana, Sentry, and Datadog. These tools play crucial roles in monitoring system performance, detecting issues in real-time, and providing detailed logs for troubleshooting. New Relic offers performance metrics and application monitoring, while Kibana facilitates log analysis and visualization. Sentry specializes in error tracking and reporting, enhancing Airbnb's ability to quickly identify and resolve issues. Datadog provides comprehensive monitoring across infrastructure and applications, ensuring high reliability and performance of Airbnb's systems through proactive monitoring and responsive incident management.
 
-_DevOps and Deployment_
+_* DevOps and Deployment_
 
 In DevOps and deployment, Airbnb uses GitHub for version control, Webpack for frontend asset bundling, and tools like Vagrant and Chef for automated infrastructure management. These tools streamline development processes and ensure efficient deployment of updates and features.
 
-_Business Tools_
+_* Business Tools_
 
 Airbnb uses collaboration tools like Slack, G Suite, Asana, and InVision for efficient communication, project management, and collaboration across teams. Slack fosters real-time communication, G Suite supports document and InVision aids in design collaboration and prototyping. These tools collectively enhance productivity by fostering seamless coordination and effective communication within Airbnb's operations, enabling teams to collaborate efficiently and achieve their goals more effectively.
 
@@ -363,4 +365,6 @@ https://stackshare.io/airbnb/airbnb
 https://cloud.google.com/learn/postgresql-vs-sql
 
 https://www.aalpha.net/blog/pros-and-cons-of-using-postgresql-for-application-development/
+
+https://www.atlassian.com/agile/product-management
 
