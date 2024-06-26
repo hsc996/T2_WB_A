@@ -105,7 +105,7 @@ https://www.atlassian.com/agile/product-management
 
 Agile Product Management hinges on consistently garnering user feedback and incorporating it into updates. This iterative approach involves a series of steps that integrate multiple feedback intervals to promote adaptability and ensure the delivery of the best possible version of the product. After deciding on the steps to be taken, the project is divided into several segments, commonly known as user stories, which are distributed among the team of developers.
 
-___Define API Objectives & Roles:__ The purpose and vision of the API will be discussed in detail with the entire cross-functional team; including developers, QA engineers, product owners, UX/UI designers, and possibly stakeholders. Once the objectives and key features of the API project have been established, clear roles should be defined among members of the team; including Scrum Master, Product Owner, and Development Team members.
+__Define API Objectives & Roles:__ The purpose and vision of the API will be discussed in detail with the entire cross-functional team; including developers, QA engineers, product owners, UX/UI designers, and possibly stakeholders. Once the objectives and key features of the API project have been established, clear roles should be defined among members of the team; including Scrum Master, Product Owner, and Development Team members.
 
 __Developing a Roadmap:__ Typically, an API project under APM will involve the construction of a product roadmap, outlining a timeline for how the product is intended to develop over time. This involves delineating large areas of functionality from which initiatives are composed (https://www.atlassian.com/agile/product-management). Roadmaps are designed to be flexible and are likely to change over the course of the project. Each initiative in the roadmap is broken down into a set of requirements, tailored throughout the process based on the team's collective understanding of the desired outcomes (https://www.atlassian.com/agile/product-management).
 
@@ -130,27 +130,50 @@ __Documentation & Versioning:__ Throughout production, it will be crucial for al
 
 ### _Q4. Provide an overview and description of a standard source control process for an API project._
 
+https://www.atlassian.com/git/tutorials/what-is-version-control#:~:text=Version%20control%2C%20also%20known%20as,to%20source%20code%20over%20time.
 
-Implementing a robust source control process is essential for effective management of an API project. It begins with selecting a suitable Version Control System (VCS) like Git, Mercurial, or SVN, enabling the team to track changes, collaborate efficiently, and manage code versions. The project repository is structured with main branches such as "master" or "main" for stable production code and "develop" for ongoing development. Developers create feature branches from "develop" to isolate their work on specific features or fixes, providing clarity and enabling efficient editing and debugging.
 
-During development, developers regularly commit changes to their feature branches, accompanied by descriptive messages that clarify the purpose of each change. Once a feature or fix is complete, developers initiate a Pull Request (PR) from their feature branch to develop. This PR serves as a platform for code review and collaboration, where peers provide feedback and suggestions directly within the PR interface. Developers address feedback, make necessary adjustments, and ensure their code meets the team's standards and requirements.
+Implementing a source control process begins with selecting a suitable Version Control System (VCS) like Git, Mercurial, or SVN, enabling the team to track changes, collaborate efficiently, and manage code versions (https://www.atlassian.com/git/tutorials/what-is-version-control#:~:text=Version%20control%2C%20also%20known%20as,to%20source%20code%20over%20time.). The project repository is structured with main branches such as "master" or "main" for stable production code and "develop" for ongoing development. Developers create feature branches from "develop" to isolate their work on specific features or fixes, providing clarity and enabling efficient editing and debugging.
+
+During development, developers regularly commit changes to their feature branches, accompanied by descriptive messages that clarify the purpose of each change. Once a feature or fix is complete, developers initiate a Pull Request (PR) from their feature branch to develop. This PR serves as a platform for code review and collaboration, where peers provide feedback and suggestions directly within the PR interface. Developers address feedback, make necessary adjustments, and ensure their code meets the team's standards and requirements (https://www.atlassian.com/git/tutorials/what-is-version-control#:~:text=Version%20control%2C%20also%20known%20as,to%20source%20code%20over%20time.).
 
 After all discussions are resolved and the PR is approved, it is merged into the develop branch using GitHub’s merge functionality. This seamless integration process ensures that changes are smoothly incorporated into the main development branch. Throughout this workflow, GitHub’s features such as pull requests, code reviews, and branching strategies support effective collaboration, maintain code quality, and facilitate transparent project management.
 
-Additionally, Continuous Integration (CI) tools like GitHub Actions automate builds and run tests with each commit, identifying integration issues early in the development cycle. Completed features undergo rigorous testing, including unit tests, integration tests, and API tests, to validate functionality and ensure performance standards are met. Release branches, created from develop, undergo further testing and validation in staging environments before merging into master or main for production release. Semantic versioning practices ensure clear tracking of API versions and compatibility across releases.
+Additionally, Continuous Integration (CI) tools like GitHub Actions automate builds and run tests with each commit, identifying integration issues early in the development cycle (https://www.atlassian.com/git/tutorials/what-is-version-control#:~:text=Version%20control%2C%20also%20known%20as,to%20source%20code%20over%20time.). Completed features undergo rigorous testing, including unit tests, integration tests, and API tests, to validate functionality and ensure performance standards are met. Release branches, created from develop, undergo further testing and validation in staging environments before merging into master or main for production release. Semantic versioning practices ensure clear tracking of API versions and compatibility across releases.
 
-Documentation plays a critical role, with detailed specifications and usage guidelines maintained within the repository. Collaboration tools integrated with the VCS, such as issue trackers and project boards (like Git Projects), facilitate task management and progress tracking throughout the development lifecycle. This structured approach ensures API projects achieve enhanced code quality, accelerate delivery cycles, and foster improved collaboration among team members, ultimately supporting the reliable and scalable deployment of APIs in production environments.
+Documentation plays a critical role, with detailed specifications and usage guidelines maintained within the repository. Collaboration tools integrated with the VCS, such as issue trackers and project boards (like Git Projects), facilitate task management and progress tracking throughout the development lifecycle (https://www.atlassian.com/git/tutorials/what-is-version-control#:~:text=Version%20control%2C%20also%20known%20as,to%20source%20code%20over%20time.). This structured approach ensures API projects achieve enhanced code quality, accelerate delivery cycles, and foster improved collaboration among team members, ultimately supporting the reliable and scalable deployment of APIs in production environments.
 
 
 
 ### _Q5. Provide an overview and description of a standard testing process for an API project._
 
+```
+The process typically begins with unit testing, where developers validate individual units of code like functions or methods to ensure they perform as intended (e.g. using `uniitest` or `pytest`). This is followed by integration testing, which verifies the seamless interaction between different components within the API, ensuring data flow and dependencies work correctly. API testing then focuses on endpoints and functionalities, checking request and response formats, error handling, and adherence to API specifications. Performance testing assesses scalability and responsiveness under various loads, while security testing identifies and mitigates vulnerabilities in authentication, data encryption, and protection against common threats. Throughout these phases, automated testing frameworks and tools like Postman, Apache JMeter, and OWASP ZAP are used to streamline testing processes, ensuring consistent and reliable results. This structured approach to testing guarantees that APIs meet high-quality standards, perform effectively, and remain secure in production environments, supporting continuous improvement and delivering value to users.
+```
 
 
 
 ### _Q6. Explain the three principles of information system security._
 
 
+There are 3 overarching principles that dictate information system (IT) security. They are as follows:
+
+
+1) __Confidentiality__
+
+If successful in executing this priciple, the information is only being accessed by individuals who are authorised to do so (https://www.techopedia.com/2/27825/security/the-basic-principles-of-it-security). Furthermore, appropriate security measures must be implemented to ensure private or sensitive information remains unaccessable to the public (https://www.techopedia.com/2/27825/security/the-basic-principles-of-it-security). Such measures involve implementing security measures such as encryption, access controls, and authentication mechanisms to protect private data from unauthorized access. For example, using strong passwords, two-factor authentication, and secure communication channels will help maintain confidentiality. By successfully executing this principle, organizations can prevent data breaches by malicious hackers and subsequently protect sensitive information from being exposed to unauthorized parties.
+
+2) __Integrity__
+
+- This principle seeks to ensure the inegrity and accuracy of the data and protects it against modifications by unauthorised peoples (https://www.techopedia.com/2/27825/security/the-basic-principles-of-it-security). In the best case scenario, this will mean that unauthorised users will be blocked from making modifications to the data. At the very least, any changes made by unsactioned users will not go undetected (https://www.techopedia.com/2/27825/security/the-basic-principles-of-it-security). Measures such as checksums, digital signatures, and data validation are employed to ensure that any modifications to data are detected and authorized. For instance, if unauthorized users attempt to modify data, these security measures will either block the changes or flag them for review. Maintaining data integrity is crucial for ensuring that the information used remain accurate and trustworthy.
+
+3) __Availability__
+
+- This principle outlines that the information provided should be readily accessible to authroised users (e.g. a password manager) (https://www.techopedia.com/2/27825/security/the-basic-principles-of-it-security). Ideally, all of systems involved in accessing, processing and storing the relevant data must be functioning correctly at all times. ((https://www.techopedia.com/2/27825/security/the-basic-principles-of-it-security). Implementing redundancy, load balancing, and disaster recovery plans helps maintain system availability. For example, a password manager should be readily accessible to users at all times, and measures such as regular backups and failover systems should be in place to prevent downtime. Ensuring availability means that users can rely on uninterrupted access to critical information and services.
+
+
+
+https://www.techopedia.com/2/27825/security/the-basic-principles-of-it-security
 
 
 ### _Q7. Provide an overview of what would need to be done within an API project to implement at least one of the principles explained in Question 6._
@@ -238,7 +261,7 @@ Airbnb uses collaboration tools like Slack, G Suite, Asana, and InVision for eff
 
 #### _Describe or make educated guesses about the hardware used to host the app._
 
-
+```
 1. Cloud Infrastructure:
 Cloud Provider: Airbnb uses Amazon Web Services (AWS) for its cloud infrastructure.
 Global Distribution: AWS's global network of data centers and Content Delivery Networks (CDNs) helps ensure low latency and high availability for Airbnb's services.
@@ -277,13 +300,13 @@ API Gateway: They might use AWS API Gateway to manage API traffic, although spec
 Airbnb's app is hosted on AWS, utilizing a robust, scalable, and secure cloud infrastructure. They leverage a combination of AWS services, such as EC2, S3, RDS, DynamoDB, CloudFront, and CloudWatch, to handle millions of users globally, ensure high availability, and provide a seamless user experience. This setup allows them to scale efficiently, maintain security, and support continuous development and deployment.
 
 These details are based on known information about Airbnb's technology stack, supplemented with educated guesses where specific details are not publicly available.
-
+```
 
 
 #### _Describe the interaction of technologies within the app._
 
 
-
+```
 Airbnb’s app leverages various technologies to provide a seamless user experience. Users access the app through smartphones, tablets, and desktop browsers, with the frontend built using frameworks like React or React Native for a responsive interface. When a user makes a request, it first hits an API Gateway, which routes it through an AWS Elastic Load Balancer (ELB) to distribute traffic across multiple EC2 instances. The app employs a microservices architecture, with each service (e.g., search, booking, user management) communicating via APIs, typically using REST or gRPC protocols.
 
 Data processing and storage involve multiple systems: structured data (user profiles, bookings, reviews) is handled by Amazon RDS, unstructured data (session caching, dynamic content) by Amazon DynamoDB, and media files (photos, videos) by Amazon S3. Data warehousing is managed by Amazon Redshift, with ETL processes transferring data for reporting and analytics.
@@ -293,20 +316,22 @@ Scalability is ensured through AWS Auto Scaling, adjusting the number of EC2 ins
 Monitoring and logging are conducted using Amazon CloudWatch for real-time metrics and the ELK stack (Elasticsearch, Logstash, Kibana) for centralized log management. Continuous integration and deployment are managed by Jenkins and GitHub, facilitating code changes, testing, and deployment.
 
 The interaction flow begins with user requests processed through the API Gateway and ELB, handled by microservices querying databases and retrieving media files from S3. The processed data is returned to the frontend, which displays the information. CloudWatch and ELK monitor performance, auto-scaling adjusts resources, and Jenkins and GitHub manage ongoing development and deployment. This integration ensures efficient traffic handling, quick responses, and robust security.
-
+```
 
 
 #### _Describe the way data is structured within the app’s database(s)._
 
-Airbnb’s data infrastructure combines relational, NoSQL, and object storage databases to efficiently manage and utilize vast amounts of data. Relational databases (Amazon RDS with PostgreSQL) store structured data requiring complex queries, such as user profiles, listings, bookings, and reviews. NoSQL databases (Amazon DynamoDB) handle high-speed access to unstructured data, such as session management and activity logs. Media files like images and videos are stored in Amazon S3. Analytical data and large-scale processing are managed through Amazon Redshift, which aggregates data from various sources for reporting and insights. This hybrid approach ensures transactional consistency, quick access to data, and efficient large-scale analytics, providing a seamless user experience.
 
+```
+Airbnb’s data infrastructure combines relational, NoSQL, and object storage databases to efficiently manage and utilize vast amounts of data. Relational databases (Amazon RDS with PostgreSQL) store structured data requiring complex queries, such as user profiles, listings, bookings, and reviews. NoSQL databases (Amazon DynamoDB) handle high-speed access to unstructured data, such as session management and activity logs. Media files like images and videos are stored in Amazon S3. Analytical data and large-scale processing are managed through Amazon Redshift, which aggregates data from various sources for reporting and insights. This hybrid approach ensures transactional consistency, quick access to data, and efficient large-scale analytics, providing a seamless user experience.
+```
 
 
 #### _Identify the entities/tables that are tracked within the app’s database(s)._
 
-
+```
 Airbnb’s databases track various entities to manage user interactions, listings, transactions, and activities. In relational databases (Amazon RDS with PostgreSQL), key tables include Users (user information), Listings (property details), Bookings (transaction records), and Reviews (user feedback). NoSQL databases (Amazon DynamoDB) manage Sessions (user session data) and Activity Logs (user activities). Object storage (Amazon S3) holds media files for listings and user documents. Data warehousing (Amazon Redshift) aggregates data in tables like Bookings Summary (booking analytics) and User Activity (user interaction summaries). These entities ensure efficient management of user data, property listings, transactions, and analytics.
-
+```
 
 
 #### _Identify the relationships and associations between the entities/tables identified in sub-question E._
@@ -368,7 +393,8 @@ Users (user_id)
 
 **REFERENCES**
 
-https://intuji.com/airbnb-tech-stack-explained-airbnb-app/
+
+Wallis, J. (2023) Airbnb Tech Stack explained: The Tech behind the Airbnb app, Intuji. Available at: https://intuji.com/airbnb-tech-stack-explained-airbnb-app/ (Accessed: 21 June 2024).
 
 https://stackshare.io/airbnb/airbnb
 
@@ -377,4 +403,10 @@ https://cloud.google.com/learn/postgresql-vs-sql
 https://www.aalpha.net/blog/pros-and-cons-of-using-postgresql-for-application-development/
 
 https://www.atlassian.com/agile/product-management
+
+https://www.atlassian.com/git/tutorials/what-is-version-control#:~:text=Version%20control%2C%20also%20known%20as,to%20source%20code%20over%20time.
+
+https://www.techopedia.com/2/27825/security/the-basic-principles-of-it-security
+
+
 
