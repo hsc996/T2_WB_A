@@ -581,7 +581,7 @@ Orders
 ├── total_amount (Decmial, NOT NULLABLE)
 └── order_status (VARCHAR/String, NOT NULLABLE)
 
-Order_Items
+Order_Product
 ├── order_items_id (PK) (Integer, UNIQUE, NOT NULLABLE)
 ├── order_id (FK, ref: Orders) (Integer, NOT NULLABLE)
 ├── product_id (FK, ref: Products) (Integer, NOT NULLABLE)
@@ -614,7 +614,7 @@ Product_Categories
 Inventory
 ├── product_id (Composite PK) (FK, ref: Products) (Integer, NOT NULLABLE)
 ├── location_id (Composite PK) (FK, ref: Locations) (Integer, NOT NULLABLE)
-└── stock_quantity (Ineteger, NOT NULLABLE)
+└── stock_quantity (Integer, NOT NULLABLE)
 ```
 ```
 Categories
@@ -639,89 +639,52 @@ Airbnb’s databases track various entities to manage user interactions, listing
 ```
 Users (PK: user_id)
 │
-│   [Users -> Orders: One-to-Many]
+│   * [Users -> Orders: One-to-Many]
 │
 ├── Orders (PK: order_id)
-│   └── Users (FK: user_id) [Many-to-One]
+│   └── Users (FK: user_id) * [Many-to-One]
 │
-│   [Users -> Reviews: One-to-Many]
-│
-├── Reviews (PK: review_id)
-│   ├── Users (FK: user_id) [Many-to-One]
-│   └── Products (FK: product_id) [Many-to-One]
-│
-│   [Products -> Review: One-to-Many]
 │
 Products (PK: product_id)
-├── Order_Items (PK: order_item_id) [One-to-Many]
-│   ├── Orders (FK: order_id) [Many-to-One]
-│   └── Products (FK: product_id) [Many-to-One]
+├── Order_Product (PK: order_item_id) * [One-to-Many]
+│   ├── Orders (FK: order_id) * [Many-to-One]
+│   └── Products (FK: product_id) * [Many-to-One]
 │
-│ [Products -> Product Categories: Many-to-Many]
+│   * [Products -> Product Categories: Many-to-Many]
 │
-├── Product_Categories ( Composite PK, FK: product_id + category_id) [Many-to-Many]
+├── Product_Categories (Composite PK, FK: product_id + category_id) * [Many-to-Many]
 │   ├── Products (PK, FK: product_id)
-│   └── Categories (PK, FK: category_id) [Many-to-One]
+│   └── Categories (PK, FK: category_id) * [Many-to-One]
 │
-│   [Products -> Reviews: One-to-Many]
+│   * [Products -> Reviews: One-to-Many]
+│   * [Users -> Reviews: One-to-Many]
 │
 ├── Reviews (PK: review_id), (FK: user_id, product_id)
-│   ├── Users (FK: user_id) [Many-to-One]
-│   └── Products (FK: product_id) [Many-to-One]
+│   ├── Users (FK: user_id) * [Many-to-One]
+│   └── Products (FK: product_id) * [Many-to-One]
 │
-│   [Products -> Inventory: One-to-Many]
+│   * [Products -> Inventory: One-to-Many]
 │
 └── Inventory (Composite PK, FK: product_id + location_id)
-    ├── Products (product_id) [Many-to-One]
-    └── Locations (location_id) [Many-to-One]
+    ├── Products (product_id) * [Many-to-One]
+    └── Locations (location_id) * [Many-to-One]
 │
 Categories (PK: category_id)
-├── Product_Categories (Composite PK, FK: product_id + category_id) [One-to-Many]
-│  ├── Products (PK, FK: product_id) [Many-to-One]
-│  └── Categories (PK, FK: category_id) [Many-to-One]
+├── Product_Categories (Composite PK, FK: product_id + category_id) * [One-to-Many]
+│  ├── Products (PK, FK: product_id) * [Many-to-One]
+│  └── Categories (PK, FK: category_id) * [Many-to-One]
 │
 Locations (PK: location_id)
-└── Inventory (PK, FK: product_id + location_id) [One-to-Many]
-    ├── Products (PK, FK: product_id) [Many-to-One]
-    └── Locations (PK, FK: location_id) [Many-to-One]
+└── Inventory (PK, FK: product_id + location_id) * [One-to-Many]
+    ├── Products (PK, FK: product_id) * [Many-to-One]
+    └── Locations (PK, FK: location_id) * [Many-to-One]
 ```
 
 
 #### _Design an entity relationship diagram (ERD) based on the answers provided to sub-questions E and F. This must represent a relational database model, even if the app itself uses something other than a relational database model._
 
 
-```
-      +-----------------+
-      |      Users      |
-      +-----------------+
-      | user_id (PK)    |
-      +-----------------+
-             ^|            ^|                      ^|
-             ||            ||                      ||
-       +------------+     +------------+           +------------+
-       |  Listings  |     |  Bookings  |           | Sessions   |
-       +------------+     +------------+           +------------+
-       | listing_id (PK)  | booking_id (PK)        | session_id (PK) |
-       | host_id (FK)     | user_id (FK)           | user_id (FK) |
-       +------------+     | listing_id (FK)        +------------+
-             |            +------------+                  |
-             |                                          +------------+
-             |                                          |Activity Logs|
-             |                                          +------------+
-             +------------+                             | log_id (PK) |
-                          |                             | user_id (FK)|
-                          |                             +------------+
-                          |
-                   +------------+
-                   |  Reviews   |
-                   +------------+
-                   | review_id (PK) |
-                   | booking_id (FK)|
-                   +------------+
-
-```
-
-
+![Airbnb](/Airbnb_ERD.drawio.png)
 
 
 
@@ -741,6 +704,4 @@ https://www.atlassian.com/agile/product-management
 https://www.atlassian.com/git/tutorials/what-is-version-control#:~:text=Version%20control%2C%20also%20known%20as,to%20source%20code%20over%20time.
 
 https://www.techopedia.com/2/27825/security/the-basic-principles-of-it-security
-
-
 
