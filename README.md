@@ -262,24 +262,24 @@ https://www.linkedin.com/advice/1/how-can-you-ensure-api-data-confidentiality-a3
 
 #### Authentication
 
-    * **Basic:** One of the most simple authentication methods involves sending and username and password with each request. These credentials are generally encoded using Base64 and included in the HTTP header. Despite its simplicity, Basic Authentication is limited in that is leaves the program vulnerable to interception if not used over HTTPS.
+    * Basic: One of the most simple authentication methods involves sending and username and password with each request. These credentials are generally encoded using Base64 and included in the HTTP header. Despite its simplicity, Basic Authentication is limited in that is leaves the program vulnerable to interception if not used over HTTPS.
     https://medium.com/@namanoli/exploring-popular-authentication-methods-for-rest-apis-a-comprehensive-guide-9c68002210e2
 
 
-    * **Digest:** Unlike basic authentication, digest authentication does not require the password to be trasmitted. Initally, the client requests access and the server responds with a 401 Unauthorised status, a nonce, a realm value. The client uses the MD5 hashing algorithm to create a response digest, which is sent in the second request. The server the performs the same hashing and compares the results. If they match, access will be granted to the user. This method enhances security by using hashed values and unique single-use nonces to prevent unintentional exposure of user credantials.
+    * Digest: Unlike basic authentication, digest authentication does not require the password to be trasmitted. Initally, the client requests access and the server responds with a 401 Unauthorised status, a nonce, a realm value. The client uses the MD5 hashing algorithm to create a response digest, which is sent in the second request. The server the performs the same hashing and compares the results. If they match, access will be granted to the user. This method enhances security by using hashed values and unique single-use nonces to prevent unintentional exposure of user credantials.
     https://learning.postman.com/docs/sending-requests/authorization/digest-auth/
     https://www.sciencedirect.com/topics/computer-science/digest-authentication
 
 
-    * **Token-based Authentication:** One of the most commonly used API authentication are token-based systems; generating access tokens which are then issued to the client upon successful authentication and can be used to access requested resources within a limited expiry period. JWTs also play a role in authourisation: After ensuring the token's validity and expiry, it will then use the embedded information to determine if the user has the necessary permissions to access the requested resource. This dual functionality of JWTs ensures secure and efficient user identity verification and access control:
+    * Token-based Authentication: One of the most commonly used API authentication are token-based systems; generating access tokens which are then issued to the client upon successful authentication and can be used to access requested resources within a limited expiry period. JWTs also play a role in authourisation: After ensuring the token's validity and expiry, it will then use the embedded information to determine if the user has the necessary permissions to access the requested resource. This dual functionality of JWTs ensures secure and efficient user identity verification and access control:
 
-        - OAuth (Open Authourisations) tokens are commonly used and work by allowing third-party services to exchange access tokens in lieu of their credentials. OAuth employs a system of access tokens and refresh tokens; whereby the access tokens grants the user permissions and refresh tokens allow the user to acquire new access tokens (https://medium.com/@namanoli/exploring-popular-authentication-methods-for-rest-apis-a-comprehensive-guide-9c68002210e2).
-
-
-        - JSON Web Tokens (JWT) are compact, URL-safe tokens that can are delivered to a user after successful authenticatino of their identity. The user agent can then send the token to access a protected route or resource to the Atuhorisation header using the Bearer schema. This is where we see the dual functionality of JWTs; allowing the developer to orchestrate both authentication and authorisation.
+        * OAuth (Open Authourisations) tokens are commonly used and work by allowing third-party services to exchange access tokens in lieu of their credentials. OAuth employs a system of access tokens and refresh tokens; whereby the access tokens grants the user permissions and refresh tokens allow the user to acquire new access tokens (https://medium.com/@namanoli/exploring-popular-authentication-methods-for-rest-apis-a-comprehensive-guide-9c68002210e2).
 
 
-        - API Key Authentication involves generating a unique API key for each client, which is then invluded in the request header. While API keys also grant access via a string of text, they differ from token authentication in one essential way. Unlike token authentication, API keys are able to identify the application making the request without providing any information specific to the user.
+        * JSON Web Tokens (JWT) are compact, URL-safe tokens that can are delivered to a user after successful authenticatino of their identity. The user agent can then send the token to access a protected route or resource to the Atuhorisation header using the Bearer schema. This is where we see the dual functionality of JWTs; allowing the developer to orchestrate both authentication and authorisation.
+
+
+        * API Key Authentication involves generating a unique API key for each client, which is then invluded in the request header. While API keys also grant access via a string of text, they differ from token authentication in one essential way. Unlike token authentication, API keys are able to identify the application making the request without providing any information specific to the user.
         https://www.netlify.com/blog/api-authentication-methods/
         
 
