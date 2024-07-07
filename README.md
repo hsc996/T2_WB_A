@@ -636,7 +636,7 @@ Airbnb’s databases track various entities to manage user interactions, listing
 
 #### _Identify the relationships and associations between the entities/tables identified in sub-question E._
 
-
+```
 Users (PK: user_id)
 ├── Orders (PK: order_id)
 │   └── Users (FK: user_id) [Many-to-One]
@@ -671,7 +671,7 @@ Locations (PK: location_id)
 └── Inventory (PK, FK: product_id + location_id)
     ├── Products (PK, FK: product_id) [Many-to-One]
     └── Locations (PK, FK: location_id) [Many-to-One]
-
+```
 
 
 #### _Design an entity relationship diagram (ERD) based on the answers provided to sub-questions E and F. This must represent a relational database model, even if the app itself uses something other than a relational database model._
