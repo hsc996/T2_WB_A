@@ -638,37 +638,50 @@ Airbnb’s databases track various entities to manage user interactions, listing
 
 ```
 Users (PK: user_id)
+│
+│   [Users -> Orders: One-to-Many]
+│
 ├── Orders (PK: order_id)
 │   └── Users (FK: user_id) [Many-to-One]
+│
+│   [Users -> Reviews: One-to-Many]
 │
 ├── Reviews (PK: review_id)
 │   ├── Users (FK: user_id) [Many-to-One]
 │   └── Products (FK: product_id) [Many-to-One]
 │
+│   [Products -> Review: One-to-Many]
+│
 Products (PK: product_id)
-├── Order_Items (PK: order_item_id)
+├── Order_Items (PK: order_item_id) [One-to-Many]
 │   ├── Orders (FK: order_id) [Many-to-One]
 │   └── Products (FK: product_id) [Many-to-One]
 │
-├── Product_Categories ( Composite PK, FK: product_id + category_id)
+│ [Products -> Product Categories: Many-to-Many]
+│
+├── Product_Categories ( Composite PK, FK: product_id + category_id) [Many-to-Many]
 │   ├── Products (PK, FK: product_id)
 │   └── Categories (PK, FK: category_id) [Many-to-One]
+│
+│   [Products -> Reviews: One-to-Many]
 │
 ├── Reviews (PK: review_id), (FK: user_id, product_id)
 │   ├── Users (FK: user_id) [Many-to-One]
 │   └── Products (FK: product_id) [Many-to-One]
+│
+│   [Products -> Inventory: One-to-Many]
 │
 └── Inventory (Composite PK, FK: product_id + location_id)
     ├── Products (product_id) [Many-to-One]
     └── Locations (location_id) [Many-to-One]
 │
 Categories (PK: category_id)
-├── Product_Categories (Composite PK, FK: product_id + category_id)
+├── Product_Categories (Composite PK, FK: product_id + category_id) [One-to-Many]
 │  ├── Products (PK, FK: product_id) [Many-to-One]
 │  └── Categories (PK, FK: category_id) [Many-to-One]
 │
 Locations (PK: location_id)
-└── Inventory (PK, FK: product_id + location_id)
+└── Inventory (PK, FK: product_id + location_id) [One-to-Many]
     ├── Products (PK, FK: product_id) [Many-to-One]
     └── Locations (PK, FK: location_id) [Many-to-One]
 ```
