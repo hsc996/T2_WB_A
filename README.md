@@ -390,10 +390,7 @@ WHERE department = 'Sales' AND name = 'John Doe';
 **DELETE** (`DELETE`) -> Removing data is executed via `DELETE` statements. This operation removes specific rows or entire sets of data from a table based on specified conditions. Deleting an employee record from the Employees table would involve identifying the record by its unique identifier (e.g. employee ID).
 
 
-
 When creating an API using Flask, SQLalchemy can be used to create CLI commands to execute these commands via the terminal (e.g. flask create, flask seed, flask drop).
-
-
 
 
 
@@ -423,7 +420,7 @@ Airbnb utilises Amazon S3 for storing static assets like property images and use
 
 _* Webserver_
 
-Nginx serves dual roles as both a high-performance HTTP web server and a reliabel reverse proxy tool within the Airbnb app. It's ability to efficiently deliver static content such as HTML, CSS and Javascript files to users accelerate frontend performance by reducing backend server load. As a reverse proxy, Nginx distributed incoming requests across multiple backend servers (including those on Amazon EC2) in order to optimise resource use and response times. It ensures sercurity with SSL/TLS management and HTTPS encryption, while its flexible configuration supports caching strategies and performance adjustments for scalability. This plethora of features maintain seamless servive uptime by routing traffic to healthy servers, managing failures, and ensuring a resilient user experience globally.
+Nginx serves dual roles as both a high-performance HTTP web server and a reliable reverse proxy tool within the Airbnb app. It's ability to efficiently deliver static content such as HTML, CSS and Javascript files to users accelerate frontend performance by reducing backend server load. As a reverse proxy, Nginx distributed incoming requests across multiple backend servers (including those on Amazon EC2) in order to optimise resource use and response times. It ensures sercurity with SSL/TLS management and HTTPS encryption, while its flexible configuration supports caching strategies and performance adjustments for scalability. This plethora of features maintain seamless servive uptime by routing traffic to healthy servers, managing failures, and ensuring a resilient user experience globally.
 
 _* Caching and key-value storage_
 
@@ -481,58 +478,20 @@ https://www.airbnb.com/help/article/126
 
 #### _Describe or make educated guesses about the hardware used to host the app._
 
+https://aws.amazon.com/intel/
 
-Majortiy of Airbnb's hardware is hosted via AWS cloud infrastructure. AWS's global network of data centers and Content Delivery Networks (CDNs) helps ensure low latency and high availability for Airbnb's services (https://aws.amazon.com/cloudfront/?gclid=Cj0KCQjw7ZO0BhDYARIsAFttkCgV797I0OHPxlkUyblxrB--MlMWLEB6aDqJ4VBOU7Y0kg7Un45cKH8aAl5PEALw_wcB&trk=9a7ac59b-f94b-4ffa-bc3e-67c65115466a&sc_channel=ps&ef_id=Cj0KCQjw7ZO0BhDYARIsAFttkCgV797I0OHPxlkUyblxrB--MlMWLEB6aDqJ4VBOU7Y0kg7Un45cKH8aAl5PEALw_wcB:G:s&s_kwcid=AL!4422!3!664015690786!p!!g!!cdn!19068271392!154611538550). There are a myriad of sub-services within the cloud database that are used to host and manage various aspects of the web application:
+Like many other tech magnates, Airbnb has not disclosed detailed specifics regarding the hardware infrastructure used to host its application. However, based on industry practices, trends and other information we have already covered about the Airbnb tech stack, here are some inferences that can be made about the hardware used:
 
-* As previously mentioned, Amazon S3 is used to host various static media assets such as property images and profiles pictures.
-* Virtual machine like Amazon EC2 (Elastic Load Balancing Cloud) is used to distribute incoming traffic across multiple networks (https://aws.amazon.com/solutions/case-studies/airbnb-case-study/).
-* They also use docker containers for application deployment and AWS Auto Scaling for automcatic adjustment of the number of EC2 instances depending on the demand.
-* While Airbnb utilises Amazon RDS (Relational Database Service) with PostgreSQL for data storage, they also use Amazon DynamoDB for some of their NoSQL database needs.
-* Data warehousing and large scale data analysis is facilitated by Amazon Redshift.
-* AWS Firewalls and security network ACLs (Access Control Lists) are used to control network traffic and protect against unauthorised access
-* Data encryption at rest and in transit is hosted by AWS Key Management Service (KMS)
-* Amazon CloudWatch is used for ongoing monitoring of growth and performance of the app
-* Centralised data logging is managed through hardware like CloudWatch and the ELK stack (Elasticsearch, Logstash, Kibana)
-* As the application has continued to rapidly grow, Airbnb has migrated to Spinnaker to facilitate its CI/CD piplining on a large-scale: e.g. automated testing and deployment of code.
-https://medium.com/airbnb-engineering/how-airbnb-safeguards-changes-in-production-9fc9024f3446
-* Version control is hosted by GitHub
-* AWS API Gateway is used to manage API network traffic
-* Airbnb has transitioned to using Kubernetes, a collection of servers that aids in aggregating their available resources including RAM, CPU, HardDisk, etc. (https://www.linkedin.com/pulse/kubernetes-its-use-cases-megha-varshney/)
+Firstly, Airbnb has disclosed that they use Ngnix HTTP web server in enhancing performance, scalabilitty and security across their web services and applications.
+
+Another thing we're already aware of is that Airbnb heavily relies on the AWS cloud infrastructure. Amazon has provided information regarding their longstanding and collaborative partnership with Intel. From the information provided by AWS regarding their processors, we are able to infer that this hardware plays a role in the structural framework of Airbnb. For example, the array of EC2 instances offered by Amazon are powered by Intel Xeon processors. These processors boast their high performance, advanced security features and energy efficiency (https://aws.amazon.com/intel/). Given that we're aware Airbnb utilises Amazon EC2 for their web hosting, scaling and backend server logic, we can subsequently infer these Intel processors are also potentially involved in hosting software within the Airbnb application. Furthermore, AWS has developed some custom hardware, such as the AWS Nitro System: This system includes custom-designed hardware, such as Nitro cards and Nitro Security Chips, which offload virtualisation functions and enhance security and performance in EC2 instances.
+
+Simiarly, it's been established that Airbnb uses Amazon S3 to manage and store various media assets. Amazon has disclosed that they use various storage options such as SSDs (Solid State Drives) and HHDs (Hard Disk Drives) across various services; of which Amazon S3 is included (https://aws.amazon.com/compare/the-difference-between-ssd-hard-drive/).
+
+Unfortunately, the amount of information disclosed about the hardware used in the Airbnb is understandably limited. Given their gold standard status in efficiency and performance, it's most likely that Airbnb would utilise Intel Xeon Processors, either first-hand or passively via AWS services. Furthermore, we know that they utilise Amazon S3 for storage of various assets, however, I believe it is likely that Airbnb would opt to use SSDs due their superior performance; either for other assets or as a means of backing up their data. I'm making this precition based off the fact that SSDs generally offer faster data access speeds and lower latency in comparison to other storage drive options. Furthermore, as discussed, it is highly likely uses AWS Nitro System, as well as Amazon's custom hardware as a result of utilising their various cloud services.
 
 
-Nearly all of the hardware used by Airbnb is hosted via the robust and scalable cloud infrastucture provided by AWS. They leverage a vast combination of services in order to effecively store and manage their data and advanced the overall performance of their application. These services allow them to scalae efficiently, maintain security an support continos development and deployment.
 
-https://aws.amazon.com/intel/ --- > AWS intel hardware.
-```
-Airbnb's tech stack is a complex mix of technologies, and while it leverages open-source solutions extensively, it's unlikely they entirely avoid Microsoft products. Here's a breakdown of the known technologies used by Airbnb:
-
-Programming Languages & Frameworks:
-
-Ruby on Rails: A popular open-source web application framework used for building the core functionality of the Airbnb platform.
-JavaScript: Used for building interactive elements and user interfaces on the frontend.
-React Native: A JavaScript framework for building mobile applications, likely used for the Airbnb mobile app.
-Java (potentially): While less prominent, Java might be used for specific backend services or integrations.
-Web Server:
-
-Nginx: A popular open-source web server likely used for handling incoming traffic and serving web pages.
-Cloud Infrastructure:
-
-Amazon Web Services (AWS): Airbnb heavily relies on AWS for cloud infrastructure, including services like EC2 (virtual machines), S3 (storage), and RDS (relational databases). While AWS is dominant, they might utilize other cloud providers for specific needs or redundancy.
-Other Technologies:
-
-Databases: Likely a mix of open-source and potentially some commercial relational databases (like MySQL) or NoSQL databases (like Hadoop) for handling different types of data.
-Payment Processing: Secure payment processing integrations with third-party services like Stripe or Braintree.
-Microsoft Products:
-
-While Airbnb primarily leverages open-source technologies, it's possible they might use some Microsoft products in specific situations. Here's why:
-
-Interoperability: The tech industry isn't always a strict "open source vs. closed source" battle. Businesses often need to integrate with various services and tools, and some functionalities might be better suited with Microsoft products. For instance, they might use Microsoft Office Suite for internal communication or utilize specific Azure cloud services for certain needs.
-Active Directory: A popular directory service for user management. While open-source alternatives exist, Active Directory might be integrated for compatibility reasons, especially if Airbnb interacts with other organizations that use it.
-Windows Servers (potentially): While Linux is dominant for web servers, some internal systems or legacy applications might run on Windows Servers.
-Conclusion:
-
-Airbnb's tech stack is an open-source powerhouse, but it's not necessarily exclusive to Microsoft products. Business needs, interoperability considerations, and potential legacy systems might necessitate the use of some Microsoft products in specific areas.
-```
 
 #### _Describe the interaction of technologies within the app._
 
@@ -682,6 +641,7 @@ Locations (PK: location_id)
 
 
 #### _Design an entity relationship diagram (ERD) based on the answers provided to sub-questions E and F. This must represent a relational database model, even if the app itself uses something other than a relational database model._
+
 
 
 ![Airbnb](/Airbnb_ERD.drawio.png)
