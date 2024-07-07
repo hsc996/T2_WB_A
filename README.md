@@ -287,11 +287,11 @@ https://www.linkedin.com/advice/1/how-can-you-ensure-api-data-confidentiality-a3
 
 Authorisation, on the other hand, determines what the authenticated user is allowed to access or interact with in the API. Bedside JWTs, which facilitate both authentication and authorisation, there ar a myriad of other measures that take be taken to ensure sensitive data remains intact. These include:
 
-* Using strong hasing algorithms such as Bcrypt, Argon2 or PBKDF
-* Adding unique salt to each password before hasing in order to prevent "rainbow table attacks"
-* Employing Role-Based Access Control (RBAC) in assigning permissions to roles rather than directly to users
-* Attribute-Based Access Control (ABAC) for using attributes (such as user, recourse, environment) to make authorisation decisions
-* OAuth 2.0 Scopes can be used in order to specifiy the levels of access the token holder has to resources
+    * Using strong hasing algorithms such as Bcrypt, Argon2 or PBKDF
+    * Adding unique salt to each password before hasing in order to prevent "rainbow table attacks"
+    * Employing Role-Based Access Control (RBAC) in assigning permissions to roles rather than directly to users
+    * Attribute-Based Access Control (ABAC) for using attributes (such as user, recourse, environment) to make authorisation decisions
+    * OAuth 2.0 Scopes can be used in order to specifiy the levels of access the token holder has to resources
 
 
 
@@ -572,21 +572,21 @@ Users
 ├── email (VARCHAR/String, NOT NULLABLE, UNIQUE)
 ├── updated_at (Date/Current Timestamp)
 ├── created_at (Date/Current Timestamp)
-├── is_admin (BOOLEAN, DEFAULT=FALSE)
+└── is_admin (BOOLEAN, DEFAULT=FALSE)
 
 Orders
 ├── order_id (PK) (Integer, UNIQUE, NOT NULLABLE)
 ├── user_id (FK, ref: Users) (Integer, NOT NULLABLE)
 ├── order_date (Date/Timestamp, NOT NULLABLE)
 ├── total_amount (Decmial, NOT NULLABLE)
-├── order_status (VARCHAR/String, NOT NULLABLE)
+└── order_status (VARCHAR/String, NOT NULLABLE)
 
 Order_Items
 ├── order_items_id (PK) (Integer, UNIQUE, NOT NULLABLE)
 ├── order_id (FK, ref: Orders) (Integer, NOT NULLABLE)
 ├── product_id (FK, ref: Products) (Integer, NOT NULLABLE)
 ├── order_quantity (Integer, NOT NULLABLE)
-├── order_price (Decimal, NOT NULLABLE)
+└── order_price (Decimal, NOT NULLABLE)
 
 Reviews
 ├── review_id (PK) (Integer, UNIQUE, NOT NULLABLE)
@@ -594,7 +594,7 @@ Reviews
 ├── product_id (FK, ref: Products) (Integer, NOT NULLABLE)
 ├── rating (Integer, NOT NULLABLE)
 ├── comment (VARCHAR, NOT NULLABLE)
-├── created_at (Date/Timestamp, NOT NULLABLE)
+└── created_at (Date/Timestamp, NOT NULLABLE)
 ```
 ```
 Products
@@ -604,59 +604,74 @@ Products
 ├── price (Decimal, NOT NULLABLE)
 ├── stock_quantity (Integer, NOT NULLABLE)
 ├── created_at (Date/Current Timestamp)
-├── updated_at (Date/Current Timestamp)
+└── updated_at (Date/Current Timestamp)
 
 
 Product_Categories
 ├── product_id (Composite PK) (FK, ref: Products)
-├── category_id (Composite PK) (FK, ref: Categories)
+└── category_id (Composite PK) (FK, ref: Categories)
 
 Inventory
 ├── product_id (Composite PK) (FK, ref: Products) (Integer, NOT NULLABLE)
 ├── location_id (Composite PK) (FK, ref: Locations) (Integer, NOT NULLABLE)
-├── stock_quantity (Ineteger, NOT NULLABLE)
+└── stock_quantity (Ineteger, NOT NULLABLE)
 ```
 ```
 Categories
 ├── category_id (PK) (Integer, UNIQUE, NOT NULLABLE)
 ├── name (VARCHAR, NOT NULLABLE)
-├── description (VARCHAR, NOT NULLABLE)
+└── description (VARCHAR, NOT NULLABLE)
 ```
 ```
 Locations
 ├── location_id (PK) (Integer, UNIQUE, NOT NULLABLE)
 ├── name (VARCHAR, NOT NULLABLE)
-├── address (VARCHAR, NOT NULLABLE)
+└── address (VARCHAR, NOT NULLABLE)
 ```
 
 
-
-
-```
 Airbnb’s databases track various entities to manage user interactions, listings, transactions, and activities. In relational databases (Amazon RDS with PostgreSQL), key tables include Users (user information), Listings (property details), Bookings (transaction records), and Reviews (user feedback). NoSQL databases (Amazon DynamoDB) manage Sessions (user session data) and Activity Logs (user activities). Object storage (Amazon S3) holds media files for listings and user documents. Data warehousing (Amazon Redshift) aggregates data in tables like Bookings Summary (booking analytics) and User Activity (user interaction summaries). These entities ensure efficient management of user data, property listings, transactions, and analytics.
-```
+
 
 
 #### _Identify the relationships and associations between the entities/tables identified in sub-question E._
 
 
+Users (PK: user_id)
+├── Orders (PK: order_id)
+│   └── Users (FK: user_id) [Many-to-One]
+│
+├── Reviews (PK: review_id)
+│   ├── Users (FK: user_id) [Many-to-One]
+│   └── Products (FK: product_id) [Many-to-One]
+│
+Products (PK: product_id)
+├── Order_Items (PK: order_item_id)
+│   ├── Orders (FK: order_id) [Many-to-One]
+│   └── Products (FK: product_id) [Many-to-One]
+│
+├── Product_Categories ( Composite PK, FK: product_id + category_id)
+│   ├── Products (PK, FK: product_id)
+│   └── Categories (PK, FK: category_id) [Many-to-One]
+│
+├── Reviews (PK: review_id), (FK: user_id, product_id)
+│   ├── Users (FK: user_id) [Many-to-One]
+│   └── Products (FK: product_id) [Many-to-One]
+│
+└── Inventory (Composite PK, FK: product_id + location_id)
+    ├── Products (product_id) [Many-to-One]
+    └── Locations (location_id) [Many-to-One]
+│
+Categories (PK: category_id)
+├── Product_Categories (Composite PK, FK: product_id + category_id)
+│  ├── Products (PK, FK: product_id) [Many-to-One]
+│  └── Categories (PK, FK: category_id) [Many-to-One]
+│
+Locations (PK: location_id)
+└── Inventory (PK, FK: product_id + location_id)
+    ├── Products (PK, FK: product_id) [Many-to-One]
+    └── Locations (PK, FK: location_id) [Many-to-One]
 
-```
-Users (user_id) (PK)
-├── Listings (listing_id) (PK), (host_id) (FK)
-│   └── Users (host_id) [Many-to-One]
-├── Bookings (booking_id) (PK), (user_id) (FK), (listing_id) (FK)
-│   ├── Users (user_id) [Many-to-One]
-│   ├── Listings (listing_id) [Many-to-One]
-│   └── Reviews (review_id) (PK), (booking_id) (FK) [One-to-One]
-├── Reviews (review_id) (PK), (booking_id) (FK)
-│   └── Bookings (booking_id) [One-to-One]
-├── Sessions (session_id) (PK), (user_id) (FK)
-│   └── Users (user_id) [Many-to-One]
-└── Activity Logs (log_id) (PK), (user_id) (FK)
-    └── Users (user_id) [Many-to-One]
-
-```
 
 
 #### _Design an entity relationship diagram (ERD) based on the answers provided to sub-questions E and F. This must represent a relational database model, even if the app itself uses something other than a relational database model._
